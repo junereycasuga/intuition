@@ -92,14 +92,20 @@ class SiteController extends Controller
 		}
 
 		// User Registration
-		if(isset($_POsT['Users']) && isset($_POST['btnRegister'])) {
+		if(isset($_POST['Users']) && isset($_POST['btnRegister'])) {
 			$modelRegister->attributes = $_POST['Users'];
-			$modelRegister->id = 0;
+			$modelRegister->id = uniqid();
+			$modelRegister->isPasswordChange = 1;
 
 			if($modelRegister->validate() && $modelRegister->save()) {
 				$this->redirect('profile');
 			}
 		}
+
+		$this->render('login', array(
+			'modelLogin'=>$modelLogin,
+			'modelRegister'=>$modelRegister
+		));
 	}
 
 	/**

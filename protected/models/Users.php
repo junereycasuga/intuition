@@ -13,6 +13,9 @@
  */
 class Users extends CActiveRecord
 {
+	public $rememberMe;
+	public $isPasswordChange = 0;
+	private $_identity;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -29,8 +32,10 @@ class Users extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, username, user_email, user_password, user_firstname, user_lastname', 'required'),
-			array('id', 'length', 'max'=>10),
+			array('username, user_email, user_password, user_firstname, user_lastname', 'required', 'on'=>'register'),
+			array('username, user_password', 'required', 'on'=>'login'),
+			array('user_firstname, user_lastname, id, user_email', 'required', 'except'=>'login'),
+			array('id', 'length', 'max'=>20),
 			array('username, user_email, user_firstname, user_lastname', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -105,17 +110,33 @@ class Users extends CActiveRecord
 		return parent::model($className);
 	}
 
+	public function beforeSave() {
+		if ($this->isPasswordChange == 1) {
+			$TPassword = new TPassword();
+			$this->user_password = $TPassword->hash($this->user_password);
+			$this->isPasswordChange = 0;
+		}
+
+		return true;
+	}
+
 	public function login() {
-		$TPassword = new TPAssword();
+		$TPassword = new TPassword();
 		$this->setAttribute('user_password', $TPassword->hash($this->user_password));
 
+		$this->rememberMe = '0';
+		if(isset($_POST['Users']['rememberMe'])) {
+			$this->rememberMe = $_POST['Users']['rememberMe'];
+		}
+
 		if($this->_identity === null) {
-			$this->_identity = new UserIdentity($this->user_email, $this->user_password);
+			$this->_identity = new UserIdentity($this->username, $this->user_password);
 			$this->_identity->authenticate();
 		}
 
 		if($this->_identity->errorCode === UserIdentity::ERROR_NONE) {
-			Yii::app()->user->login($this->_identity, 0);
+			$duration=$this->rememberMe ? 3600*24*30 : 0;
+			Yii::app()->user->login($this->_identity, $duration);
 			return true;
 		} else {
 			return false;
