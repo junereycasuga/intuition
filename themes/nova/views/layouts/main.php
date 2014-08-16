@@ -20,7 +20,7 @@
     Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/sl-slide.css');
 
     // modernizr
-    Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/odernizr-2.6.2-respond-1.1.0.min.js');
+    Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js');
     ?>
 </head>
 <body>
@@ -33,7 +33,7 @@
 	?>
 
 	<?php echo $content; ?>
-	
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
 	<?php 
 	// theme specific scripts
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/jquery-1.9.1.min.js');
@@ -43,6 +43,7 @@
 	// js for slider
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.ba-cond.min.js');
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.slitslider.js');
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/map.js');
 	?>
 
 	<script>

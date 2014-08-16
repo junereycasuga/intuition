@@ -1,6 +1,6 @@
 <?php
 
-class ProfileController extends Controller
+class InsightController extends Controller
 {
 	public function filters(){
 		return array(
@@ -11,7 +11,7 @@ class ProfileController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow',
-				'actions'=>array('index'),
+				'actions'=>array('create'),
 				'expression'=>function(){
 					if(Yii::app()->user->isGuest) {
 						return false;
@@ -23,10 +23,7 @@ class ProfileController extends Controller
 		);
 	}
 
-	public function actionIndex(){
-		$myInsights = CreatedInsights::getListOfInsights();
-		$this->render('index',array(
-				'insight' => $myInsights,
-			));
+	public function actionCreate(){
+		$this->render('createInsight');
 	}
 }

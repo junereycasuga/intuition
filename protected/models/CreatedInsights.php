@@ -10,9 +10,9 @@ class CreatedInsights extends CActiveRecord
 	public function rules()
 	{
 		return array(
-			array('id, owner_id, category_id, date_created', 'required'),
+			array('id, owner_id, category_id, date_created, status', 'required'),
 			array('id, owner_id, category_id', 'length', 'max'=>10),
-			array('id, owner_id, category_id, date_created', 'safe', 'on'=>'search'),
+			array('id, owner_id, category_id, date_created, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -30,6 +30,7 @@ class CreatedInsights extends CActiveRecord
 			'owner_id' => 'Owner',
 			'category_id' => 'Category',
 			'date_created' => 'Date Created',
+			'status' => 'Status',
 		);
 	}
 
@@ -41,6 +42,7 @@ class CreatedInsights extends CActiveRecord
 		$criteria->compare('owner_id',$this->owner_id,true);
 		$criteria->compare('category_id',$this->category_id,true);
 		$criteria->compare('date_created',$this->date_created,true);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
