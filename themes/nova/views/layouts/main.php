@@ -34,6 +34,7 @@
 
 	<?php echo $content; ?>
 	
+	<?php $this->renderPartial('//layouts/footer'); ?>
 	<?php 
 	// theme specific scripts
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/jquery-1.9.1.min.js');
