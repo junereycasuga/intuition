@@ -3,7 +3,8 @@
 	<div class="container">
 		<div class="center">
 			<h1>I want to put up a business in...</h1>
-			<input type="text" name="" id="" class="x-large">
+			<br>
+			<input type="text" name="" id="" class="input-xxxlarge span8" placeholder="Makati City">
 		</div>
 	</div>
 	<div class="gap"></div>
