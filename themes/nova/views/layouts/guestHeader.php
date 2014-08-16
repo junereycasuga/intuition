@@ -9,8 +9,9 @@
 			<a href="#" id="logo" class="pull-left"></a>
 			<div class="nav-collapse collapse pull-right">
 				<ul class="nav">
-					<li><a href="#">Home</a></li>
+					<li><a href="<?php echo Yii::app()->createUrl('site/index'); ?>">Home</a></li>
 					<li><a href="#">About</a></li>
+					<li class="login"><a href="<?php echo Yii::app()->createUrl('site/login'); ?>">Login</a></li>
 				</ul>
 			</div>
 		</div>

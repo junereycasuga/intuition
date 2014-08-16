@@ -60,6 +60,10 @@
 					<input type="submit" value="Register" class="btn btn-success btn-large btn-block" name="btnRegister">
 				</div>
 			</div>
+
+			<div class="control-group">
+				<p class="pull-right">Already have an account? Login <a href="<?php echo Yii::app()->createUrl('site/login'); ?>">here</a></p>
+			</div>
 		</fieldset>
 	<?php $this->endWidget(); ?>
 </section>

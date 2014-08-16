@@ -47,6 +47,10 @@
 					<input type="submit" value="Login" class="btn btn-success btn-large btn-block" name="btnLogin">
 				</div>
 			</div>
+
+			<div class="control-group">
+				<p class="pull-right">Don't have an account? Register <a href="<?php echo Yii::app()->createUrl('site/register'); ?>">here</a></p>
+			</div>
 		</fieldset>
 
 	<?php $this->endWidget(); ?>

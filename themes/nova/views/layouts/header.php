@@ -11,6 +11,13 @@
 				<ul class="nav">
 					<li><a href="#">Home</a></li>
 					<li><a href="#">About</a></li>
+					<li class="dropdown login">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo Yii::app()->user->userName; ?> <i class="icon-angle-down"></i></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">My Profile</a></li>
+							<li><a href="<?php echo Yii::app()->createUrl('site/logout'); ?>">Logout</a></li>
+						</ul>
+					</li>
 				</ul>
 			</div>
 		</div>

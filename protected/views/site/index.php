@@ -14,8 +14,8 @@
 	<div class="container">
 		<div class="row-fluid">
 			<div class="span9">
-				<h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, suscipit perspiciatis?</h4>
-				<p class="no-margin">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at libero assumenda aut quo accusamus facilis. Consequatur, porro, velit. Sit eveniet ducimus, odio consectetur tempora fugit quia aspernatur distinctio assumenda.</p>
+				<h4>Want to help others to know more about a certain area?</h4>
+				<p class="no-margin">Share what you know about by giving your insight on a certain area.</p>
 			</div>
 			<div class="span3">
 				<a href="#" class="btn btn-success btn-large pull-right">Contribute Now</a>
@@ -27,19 +27,18 @@
 <section id="services">
 	<div class="container">
 		<div class="center gap">
-			<h3>Lorem Ipsum</h3>
-			<p class="lead">Nulla.</p>
+			<h3>How it works?</h3>
 		</div>
 
 		<div class="row-fluid">
 			<div class="span6">
 				<div class="media">
 					<div class="pull-left">
-						<i class="icon-globe icon-medium"></i>
+						<i class="icon-search icon-medium"></i>
 					</div>
 					<div class="media-body">
-						<h4 class="media-heding">Lorem Ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error laboriosam repellat et laborum impedit nobis, eligendi quasi inventore at, reiciendis explicabo doloribus velit eveniet autem quia, recusandae voluptas hic quae!</p>
+						<h4 class="media-heding">Search</h4>
+						<p>Do you want to know if your business should be in a specific location? Or do you want to know if a restaurant near you is a good place to eat at? Just ask <b>Intuition</b>, and it will give you the best answers it can find.</p>
 					</div>
 				</div>
 			</div>
@@ -49,32 +48,8 @@
 						<i class="icon-globe icon-medium"></i>
 					</div>
 					<div class="media-body">
-						<h4 class="media-heding">Lorem Ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error laboriosam repellat et laborum impedit nobis, eligendi quasi inventore at, reiciendis explicabo doloribus velit eveniet autem quia, recusandae voluptas hic quae!</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row-fluid">
-			<div class="span6">
-				<div class="media">
-					<div class="pull-left">
-						<i class="icon-globe icon-medium"></i>
-					</div>
-					<div class="media-body">
-						<h4 class="media-heding">Lorem Ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error laboriosam repellat et laborum impedit nobis, eligendi quasi inventore at, reiciendis explicabo doloribus velit eveniet autem quia, recusandae voluptas hic quae!</p>
-					</div>
-				</div>
-			</div>
-			<div class="span6">
-				<div class="media">
-					<div class="pull-left">
-						<i class="icon-globe icon-medium"></i>
-					</div>
-					<div class="media-body">
-						<h4 class="media-heding">Lorem Ipsum</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error laboriosam repellat et laborum impedit nobis, eligendi quasi inventore at, reiciendis explicabo doloribus velit eveniet autem quia, recusandae voluptas hic quae!</p>
+						<h4 class="media-heding">Contribute</h4>
+						<p>Help others by giving your insights on a specific area. Wether it is for business, leisure, etc.</p>
 					</div>
 				</div>
 			</div>

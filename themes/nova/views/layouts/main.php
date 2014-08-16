@@ -26,9 +26,9 @@
 <body>
 	<?php
 	if(!Yii::app()->user->isGuest) {
-		$this->renderPartial('//layouts/guestHeader');
-	} else {
 		$this->renderPartial('//layouts/header');
+	} else {
+		$this->renderPartial('//layouts/guestHeader');
 	}
 	?>
 
