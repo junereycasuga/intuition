@@ -84,7 +84,7 @@ class SiteController extends Controller
 			$modelLogin->attributes = $_POST['Users'];
 
 			if($modelLogin->validate() && $modelLogin->login()) {
-				$this->redirect('profile');
+				$this->redirect(array('profile/index'));
 			} else {
 				$this->redirect(array('site/login'));
 			}
@@ -105,7 +105,7 @@ class SiteController extends Controller
 			$modelRegister->isPasswordChange = 1;
 
 			if($modelRegister->validate() && $modelRegister->save()) {
-				$this->redirect('profile');
+				$this->redirect(array('profile/index'));
 			}
 		}
 
