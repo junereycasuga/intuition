@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Intuition',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.directmongosuite.components.*',
 	),
 
 	'modules'=>array(
@@ -30,23 +31,31 @@ return array(
 		*/
 	),
 
+	'behaviors'=>array(
+		'edms'=>array(
+			'class'=>'EDMSBehavior',
+		)
+	),
+
 	// application components
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
-		// uncomment the following to enable URLs in path-format
-		/*
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'class'=>'UrlManager',
+			'showScriptName'=>false,
+			'caseSensitive'=>true,
 			'rules'=>array(
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		*/
+		
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
@@ -64,6 +73,7 @@ return array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
 		),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -78,6 +88,25 @@ return array(
 				),
 				*/
 			),
+		),
+
+		'edms'=>array(
+			'class'=>'EDMSConnection',
+			'dbName'=>'intuition',
+			'server'=>'mongodb://localhost:27017'
+		),
+
+		'session'=>array(
+			'class'=>'EDMSHttpSession',
+		),
+
+		'cache'=>array(
+			'class'=>'EDMSCache',
+			'ensureIndex'=>true
+		),
+
+		'authManager'=>array(
+			'class'=>'EDMSAuthManager'
 		),
 	),
 
