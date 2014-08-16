@@ -54,6 +54,8 @@ class CreatedInsights extends CActiveRecord
 
 	public static function getListOfInsights(){
 		$creations = self::model()->findAllByAttributes(array('owner_id'=>Yii::app()->user->id));
-		
+		$creationArray = array();
+
+		return $creationArray;
 	}
 }

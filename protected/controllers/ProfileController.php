@@ -25,6 +25,8 @@ class ProfileController extends Controller
 
 	public function actionIndex(){
 		$myInsights = CreatedInsights::getListOfInsights();
-		$this->render('index');
+		$this->render('index',array(
+				'insight' => $myInsights,
+			));
 	}
 }
