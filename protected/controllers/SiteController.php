@@ -78,7 +78,6 @@ class SiteController extends Controller
 	public function actionLogin()
 	{
 		$modelLogin = new Users('login');
-		$modelRegister = new Users('register');
 
 		// User Login
 		if(isset($_POST['Users']) && isset($_POST['btnLogin'])) {
@@ -91,6 +90,14 @@ class SiteController extends Controller
 			}
 		}
 
+		$this->render('login', array(
+			'modelLogin'=>$modelLogin
+		));
+	}
+
+	public function actionRegister() {
+		$modelRegister = new Users('register');
+
 		// User Registration
 		if(isset($_POST['Users']) && isset($_POST['btnRegister'])) {
 			$modelRegister->attributes = $_POST['Users'];
@@ -102,8 +109,7 @@ class SiteController extends Controller
 			}
 		}
 
-		$this->render('login', array(
-			'modelLogin'=>$modelLogin,
+		$this->render('register', array(
 			'modelRegister'=>$modelRegister
 		));
 	}
