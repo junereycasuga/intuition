@@ -77,25 +77,29 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
-		$model=new LoginForm;
+		$modelLogin = new Users('login');
+		$modelRegister = new Users('register');
 
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
+		// User Login
+		if(isset($_POST['Users']) && isset($_POST['btnLogin'])) {
+			$modelLogin->attributes = $_POST['Users'];
+
+			if($modelLogin->validate() && $modelLogin->login()) {
+				$this->redirect('profile');
+			} else {
+				$this->redirect(array('site/login'));
+			}
 		}
 
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
+		// User Registration
+		if(isset($_POsT['Users']) && isset($_POST['btnRegister'])) {
+			$modelRegister->attributes = $_POST['Users'];
+			$modelRegister->id = 0;
+
+			if($modelRegister->validate() && $modelRegister->save()) {
+				$this->redirect('profile');
+			}
 		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
 	}
 
 	/**
@@ -104,6 +108,6 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
+		$this->redirect('login');
 	}
 }
