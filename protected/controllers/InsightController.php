@@ -11,7 +11,7 @@ class InsightController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow',
-				'actions'=>array('index','create','post','details','list'),
+				'actions'=>array('index','create','post','details','list','view'),
 				'expression'=>function(){
 					if(Yii::app()->user->isGuest) {
 						return false;
@@ -58,5 +58,23 @@ class InsightController extends Controller
 		$this->render('list', array(
 			'posts'=>$posts
 		));
+	}
+	public function actionView($id){
+		$details 			= 	CreatedInsights::getThisInsight($id);
+		if($details->owner == Yii::app()->user->id){
+			$this->redirect('details?id='.$id);
+		}else{
+			$getOwnerDetails	=	CreatedInsights::getInsightOwnerDetails($details->owner,$details->insight_id);
+			$getFeedbacks 		=	CreatedInsights::getFeedbacks($details->insight_id);
+			if($_POST['submitReview']){
+				$review = $_POST['postReview'];
+				CreatedInsights::insertFeedback(Yii::app()->user->id,$id,$review);
+			}
+			$this->render('view', array(
+				'details'			=>	$details,
+				'getOwnerDetails'	=> 	$getOwnerDetails,
+				'getFeedbacks'		=>	$getFeedbacks,
+			));
+		}
 	}
 }

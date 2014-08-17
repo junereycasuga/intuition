@@ -8,30 +8,48 @@
             </div>
         </div>
     </section>
-    <section class="container"><br>
-        <div class="container widget customize-form">
-            <div class="row-fluid">
-                <div class="span12">
-                    <input type="text" name="location" id="locationData" placeholder="Enter a location" value="<?php echo ($_POST['searchLocation'])?$_POST['searchLocation']:"";?>">
-                    <div id="map" class="mapSize"></div>
+    <div class="center">
+        <section class="container span12"><br>
+            <div class="container widget customize-form">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="row-fluid">
+                            <input type="text" class="pull-left" name="location" id="locationData" placeholder="Enter a location">
+                        </div>
+                        <div id="map" class="mapSize"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span12">
-                    <h3 id="location_text"></h3>
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="pull-left">
+                            <h3 id="location_text"></h3>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span12 overall">
-                    <b>Overall Rating : </b><span class="ratingFromGoogle"></span>
+                <div class="row-fluid">
+                    <div class="pull-left">
+                        <div class="span12 overall">
+                            <b>Overall Rating : </b><span class="ratingFromGoogle"></span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row-fluid">
-                <div class="span12 reviews">
+                <div class="row-fluid">
+                    <div class="pull-left">
+                        <div class="span12 reviews"></div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="row-fluid">
+                <hr/>
+                <form name="frm" method="POST" action="<?php echo Yii::app()->createUrl('insight/post'); ?>">
+                    <input type="hidden" name="locationName" class="locationName">
+                    <input type="hidden" name="locationCode" class="locationCode">
+                    <div class="row-fluid">
+                        <textarea name="postDescription" id="postDescription" class="span12" rows="10" placeholder="Enter Description About this Post Here"></textarea>
+                    </div>
+                    <div class="row-fluid">
+                        <input type="submit" value="POST" class="pull-right btn btn-primary btn-large">
+                    </div>
+                </form>
+<div class="row-fluid">
                 <a href="#postForm" data-toggle="modal" role="button" class="btn btn-success btn-medium pull-right">Want to know others people's insight?</a>
             </div>
             <!-- <hr/> -->
@@ -49,9 +67,9 @@
                     </form>
                 </div>
             </div>
-        </div>
-
-    </section>
+            </div>
+        </section>
+    </div>
 </div>
 <script>
     $(document).ready(function(){

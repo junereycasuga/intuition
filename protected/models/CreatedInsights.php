@@ -154,6 +154,7 @@ class CreatedInsights extends CActiveRecord
 		if($info){
 			$data = new stdClass;
 			$data->id = $info['_id'];
+			$data->owner = $info['owner'];
 			$data->insight_id = $info['insight_id'];
 			$data->location = $info['location'];
 			$data->code = $info['code'];
@@ -178,4 +179,57 @@ class CreatedInsights extends CActiveRecord
 			}
 		}
 	}*/
+
+public static function getInsightOwnerDetails($ownerId,$insightId){
+		$insight 	= 	self::model()->findByAttributes(array('id'=>$insightId,'owner_id'=>$ownerId));
+		$user 		=	Users::model()->findByPk($ownerId);
+		$collection = Yii::app()->edmsMongoCollection('insights');
+		$info 		= $collection->findOne(array("insight_id" => $insightId));
+		if($insight && $user && $info){
+			$data = new stdClass;
+			$data->id = $insight->id;
+			$data->owner_id = $insight->owner_id;
+			$data->date_posted = $insight->date_created;
+			$data->user_firstname = $user->user_firstname;
+			$data->user_lastname = $user->user_lastname;
+			$data->description = $info['description'];
+
+			return $data;
+		}
+	}
+
+	public static function insertFeedback($reviewer,$insightId,$review){
+		$collection = Yii::app()->edmsMongoCollection('insights');
+		$insight = $collection->findOne(array("insight_id" => $insightId));
+		if($insight){
+			//old data
+			$arr1 = array();
+			$arr1 = $insight['feedback'];
+
+			// new data
+			$data = array();
+			$data['user']	= 	$reviewer;
+			$data['date']	=  	DATE('Y-m-d H:i:s A');
+			$data['review']	=  	$review;
+
+			// merge two arrays
+			$mergeArr 	= array();
+			$mergeArr 	=	array_merge($arr1,array($data));
+
+				$collection->update(
+					array("insight_id" => $insightId),
+					array('$set' => array(
+						"feedback" => $mergeArr,
+					))
+				);
+			return true;
+		}
+	}
+
+	public static function getFeedbacks($insightId){
+		$collection = Yii::app()->edmsMongoCollection('insights');
+		$insight = $collection->findOne(array("insight_id" => $insightId));
+		$feedbacks = $insight['feedback'];
+		return $feedbacks;
+	}
 }
