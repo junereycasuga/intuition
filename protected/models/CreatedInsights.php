@@ -80,6 +80,31 @@ class CreatedInsights extends CActiveRecord
 		return $creationArray;
 	}
 
+	public static function getAllInsights() {
+		$collection = Yii::app()->edmsMongoCollection('insights');
+		$collectionList = $collection->find();
+		$collectionArray = array();
+
+		if($collectionList) {
+			foreach($collectionList as $list) {
+				$data = new stdClass;
+				$data->id = $list['_id'];
+				$data->insight_id = $list['insight_id'];
+				$data->location = $list['location'];
+				$data->code = $list['code'];
+				$data->description = $list['description'];
+				$data->ownerId = Users::model()->findByPk($list['owner'])->id;
+				$data->ownerFirstName = Users::model()->findByPk($list['owner'])->user_firstname;
+				$data->ownerLastName = Users::model()->findByPk($list['owner'])->user_lastname;
+				$data->feed = $list['feedback'];
+				$data->date_posted = self::model()->findByAttributes(array('id'=>$list['insight_id']))->date_created;
+				$collectionArray[] = $data;
+			}
+		}
+
+		return $collectionArray;
+	}
+
 	public static function postInsight($id,$owner,$location,$code,$description){
 
 		$model = new CreatedInsights;

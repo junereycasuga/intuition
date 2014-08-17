@@ -11,7 +11,7 @@ class InsightController extends Controller
 	public function accessRules(){
 		return array(
 			array('allow',
-				'actions'=>array('index','create','post','details'),
+				'actions'=>array('index','create','post','details','list'),
 				'expression'=>function(){
 					if(Yii::app()->user->isGuest) {
 						return false;
@@ -49,5 +49,13 @@ class InsightController extends Controller
 		$details = CreatedInsights::getThisInsight($id);
 
 		Common::pre($details);
+	}
+
+	public function actionList() {
+		$posts = CreatedInsights::getAllInsights();
+		
+		$this->render('list', array(
+			'posts'=>$posts
+		));
 	}
 }

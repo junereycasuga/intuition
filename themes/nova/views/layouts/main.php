@@ -48,37 +48,5 @@
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.simple-text-rotator.min.js');
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/map.js');
 	?>
-
-	<script>
-		$(function() {
-		    var Page = (function() {
-
-		        var $navArrows = $( '#nav-arrows' ),
-		        slitslider = $( '#slider' ).slitslider( {
-		            autoplay : true
-		        } ),
-
-		        init = function() {
-		            initEvents();
-		        },
-		        initEvents = function() {
-		            $navArrows.children( ':last' ).on( 'click', function() {
-		                slitslider.next();
-		                return false;
-		            });
-
-		            $navArrows.children( ':first' ).on( 'click', function() {
-		                slitslider.previous();
-		                return false;
-		            });
-		        };
-
-		        return { init : init };
-
-		    })();
-
-		    Page.init();
-		});
-	</script>
 </body>
 </html>
