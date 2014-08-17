@@ -47,5 +47,7 @@ class InsightController extends Controller
 
 	public function actionDetails($id){
 		$details = CreatedInsights::getThisInsight($id);
+
+		Common::pre($details);
 	}
 }

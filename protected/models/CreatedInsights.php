@@ -107,22 +107,17 @@ class CreatedInsights extends CActiveRecord
 
 	public static function getThisInsight($id){
 		$collection = Yii::app()->edmsMongoCollection('insights');
-		$info = $collection->find(array("insight_id" => $id));
+		$info = $collection->findOne(array("insight_id" => $id));
 		$infos = array();
 		if($info){
-			Common::pre($info);exit;
-			foreach($info as $data){
-				
-				$data = new stdClass;
-				$data->id = $data['_id'];
-				$data->insight_id = $data['insight_id'];
-				$data->location = $data['location'];
-				$data->code = $data['code'];
-				$data->description = $data['description'];
-				$data->feed = $data['feedback'];
-				$creationArray[] = $data;
-
-			}
+			$data = new stdClass;
+			$data->id = $info['_id'];
+			$data->insight_id = $info['insight_id'];
+			$data->location = $info['location'];
+			$data->code = $info['code'];
+			$data->description = $info['description'];
+			$data->feed = $info['feedback'];
+			return $data;
 		}
 	}
 }
