@@ -146,4 +146,20 @@ class CreatedInsights extends CActiveRecord
 			return $data;
 		}
 	}
+
+	/*public static function getFeedBacksFromPlace($id){
+		$collection = Yii::app()->edmsMongoCollection('insights');
+		$info = $collection->find(array("code" => $id));
+		$infoArray = array();
+		if($info){
+			foreach($info as $information){
+				if($information['feedback']){
+					for($counter = 0; $counter < sizeOf($information['feedback']); $counter++){
+						
+					}
+					$infoArray[] = $data;	
+				}
+			}
+		}
+	}*/
 }

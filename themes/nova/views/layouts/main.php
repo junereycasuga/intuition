@@ -22,7 +22,7 @@
     Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/custom.css');
 
     // modernizr
-    Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/odernizr-2.6.2-respond-1.1.0.min.js');
+    Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js');
     ?>
 </head>
 <body>

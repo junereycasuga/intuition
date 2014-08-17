@@ -47,8 +47,9 @@ class InsightController extends Controller
 
 	public function actionDetails($id){
 		$details = CreatedInsights::getThisInsight($id);
+		//$feeds = CreatedInsights::getFeedBacksFromPlace($details->code);
+		$this->render('details',array('info'=>$details));
 
-		Common::pre($details);
 	}
 
 	public function actionList() {
