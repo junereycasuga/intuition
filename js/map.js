@@ -103,7 +103,9 @@ INTUITION.map = {
 				scaledSize: new google.maps.Size(35, 35)
 			}));
 			marker.setPosition(place.geometry.location);
-			$('#DealForm2_venue').val($('#locationData').val());
+			$('#location_text').text($('#locationData').val());
+			$('.locationName').val($('#locationData').val());
+			$('.locationCode').val(place.place_id);
 			marker.setVisible(true);
 
 			var address = '';
@@ -117,6 +119,26 @@ INTUITION.map = {
 
 			infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
 			infowindow.open(map, marker);
+			var request = {
+			    placeId: place.place_id
+			};
+			var service = new google.maps.places.PlacesService(map);
+			service.getDetails(request, function(placeData, status) {
+				$('.overall').show();
+				$rating = (placeData.rating)?placeData.rating:'No Rating';
+				$('.ratingFromGoogle').html($rating+"&nbsp;<small>(From google.com)</small>");
+				if(placeData.reviews){
+					$('.reviews').html('');
+					$('.reviews').append('<h3>GOOGLE REVIEWS</h3>');
+					for(var $counter1 = 0; $counter1 < placeData.reviews.length; $counter1++){
+						$comment = (placeData.reviews[$counter1].text)?placeData.reviews[$counter1].text:"Blank Comment";
+    					$('.reviews').append("<blockquote><p>"+$comment+"</p><small>"+placeData.reviews[$counter1].author_name+"</small></blockquote>");
+					}
+				}else{
+					$('.reviews').html('');
+					$('.reviews').append('<h3>No reviews from Google.</3>');
+				}
+			});
 		});
 	},
 }
