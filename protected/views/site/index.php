@@ -26,7 +26,7 @@
 		<div class="row-fluid">
 			<div class="span9">
 				<h4>Want to help others to know more about a certain area?</h4>
-				<p class="no-margin">Share what you know about by giving your insight on a certain area.</p>
+				<p class="no-margin">Share what you know by giving your insight on a certain area.</p>
 			</div>
 			<div class="span3">
 				<a href="#" class="btn btn-success btn-large pull-right">Contribute Now</a>
@@ -73,7 +73,7 @@ $(document).ready(function() {
 	$(".rotate").textrotator({
 	  animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
 	  // separator: "," // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
-	  speed: 3000 // How many milliseconds until the next word show.
+	  speed: 1000 // How many milliseconds until the next word show.
 	});
 });
 </script>

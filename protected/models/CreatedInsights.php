@@ -103,7 +103,7 @@ class CreatedInsights extends CActiveRecord
 			}
 		}
 
-		return $collectionArray;
+		return array_reverse($collectionArray);
 	}
 
 	public static function postInsight($id,$owner,$location,$code,$description){

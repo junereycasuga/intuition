@@ -8,7 +8,7 @@
             </div>
         </div>
     </section>
-    <section class="container span12"><br>
+    <section class="container"><br>
         <div class="container widget customize-form">
             <div class="row-fluid">
                 <div class="span12">
