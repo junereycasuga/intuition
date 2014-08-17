@@ -11,6 +11,7 @@
     <div class="container">
         <div class="row-fluid">
             <?php if($insight){ ?>
+                
             <?php }else{ ?>
                 <h2 class="text-error">No Existing Insights</h2>
             <?php } ?>

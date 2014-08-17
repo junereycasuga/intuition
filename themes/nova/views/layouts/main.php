@@ -27,15 +27,15 @@
 <body>
 	<?php
 	if(!Yii::app()->user->isGuest) {
-		$this->renderPartial('//layouts/header');
-	} else {
 		$this->renderPartial('//layouts/guestHeader');
+	} else {
+		$this->renderPartial('//layouts/header');
 	}
 	?>
 
 	<?php echo $content; ?>
-	
 	<?php $this->renderPartial('//layouts/footer'); ?>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
 	<?php 
 	// theme specific scripts
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/jquery-1.9.1.min.js');
@@ -46,6 +46,39 @@
 	// Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.ba-cond.min.js');
 	// Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.slitslider.js');
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.simple-text-rotator.min.js');
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/map.js');
 	?>
+
+	<script>
+		$(function() {
+		    var Page = (function() {
+
+		        var $navArrows = $( '#nav-arrows' ),
+		        slitslider = $( '#slider' ).slitslider( {
+		            autoplay : true
+		        } ),
+
+		        init = function() {
+		            initEvents();
+		        },
+		        initEvents = function() {
+		            $navArrows.children( ':last' ).on( 'click', function() {
+		                slitslider.next();
+		                return false;
+		            });
+
+		            $navArrows.children( ':first' ).on( 'click', function() {
+		                slitslider.previous();
+		                return false;
+		            });
+		        };
+
+		        return { init : init };
+
+		    })();
+
+		    Page.init();
+		});
+	</script>
 </body>
 </html>
