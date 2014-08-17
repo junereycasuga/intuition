@@ -23,6 +23,9 @@
 							&nbsp;|&nbsp;
 							<i class="icon-calendar"></i> <?php echo $post->date_posted; ?>
 						</p>
+						<p class="pull-right">
+							<i class="icon-comment pull"></i> <a href="#"><?php echo $post->feedbackCount . " insights"; ?></a>
+						</p>
 					</div>
 					<p><?php echo $post->description; ?></p>
 					<br><br>

@@ -96,8 +96,9 @@ class CreatedInsights extends CActiveRecord
 				$data->ownerId = Users::model()->findByPk($list['owner'])->id;
 				$data->ownerFirstName = Users::model()->findByPk($list['owner'])->user_firstname;
 				$data->ownerLastName = Users::model()->findByPk($list['owner'])->user_lastname;
-				$data->feed = $list['feedback'];
+				$data->feedback = $list['feedback'];
 				$data->date_posted = self::model()->findByAttributes(array('id'=>$list['insight_id']))->date_created;
+				$data->feedbackCount = count($list['feedback']);
 				$collectionArray[] = $data;
 			}
 		}
