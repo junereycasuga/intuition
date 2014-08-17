@@ -2,59 +2,6 @@ INTUITION = {};
 INTUITION.map = {
 	init: function() {
 	},
-	eventMap: function(address){
-		
-		var mapOptions = {
-			zoom : 12,    
-		};
-		map = new google.maps.Map(document.getElementById('map'), mapOptions);
-		navigator.geolocation.getCurrentPosition(function(position) {
-		    var pos = new google.maps.LatLng(position.coords.latitude,
-		                                    position.coords.longitude);
-		      
-			map.setCenter(pos);
-			
-			var directionsDisplay;
-			var directionsService = new google.maps.DirectionsService();
-			directionsDisplay = new google.maps.DirectionsRenderer();
-			directionsDisplay.setMap(map);
-			directionsDisplay.setPanel(document.getElementById('directions'));
-			$lat = String(position.coords.latitude);
-			$lng = String(position.coords.longitude);
-			$latlng = $lat+", "+$lng;
-			var request = {
-			    origin: $latlng,
-			    destination: address,
-			    provideRouteAlternatives: true,
-			    travelMode: google.maps.TravelMode.DRIVING
-			};
-			
-			directionsService.route(request, function(response, status) {
-			    if (status == google.maps.DirectionsStatus.OK) {
-			      directionsDisplay.setDirections(response);
-			    }
-			});
-
-		}, function() {
-		    alert('something went wrong');
-		});
-		$counter = 0;
-		$counter2 = 0;
-		$(".adp").each(function(){
-			if($counter == 0){
-				$(this).hide();
-			}
-			$counter++;
-		});
-
-		$(".adp-list").each(function(){
-			if($counter2 == 0){
-				$(this).hide();
-			}
-			$counter2++;
-		});
-
-	},
 	setMap: function(){
 		var mapOptions = {
 			zoom : 17,
