@@ -24,7 +24,9 @@ class ProfileController extends Controller
 	}
 
 	public function actionIndex(){ 
-		$modelUser 	=	Users::model()->findByPk(Yii::app()->user->id);
+		$userId 	= 	Yii::app()->user->id;
+		$modelUser 	=	Users::model()->findByPk($userId);
+		$insights 	=	CreatedInsights::getListOfInsights($userId);
 		if(isset($_POST['Users'])){
 			$modelUser->attributes = $_POST['Users'];
 			$TPassword = new TPassword();
@@ -33,6 +35,7 @@ class ProfileController extends Controller
 		}
 		$this->render('index',array(
 				'modelUser' => $modelUser,
+				'insights'	=> $insights,
 			));
 	}
 }
