@@ -27,5 +27,14 @@
 	    		</p>
 	    	</div>
     	</div>
+        <hr/>
+        <div class="row-fluid">
+            <div class="span12 reviews">
+                <?php if($info->feed){ ?>
+                <?php }else{ ?>
+                    <h2 class="text-error">No Feedbacks for this Post</h2>
+                <?php } ?>
+            </div>
+        </div>
     </div>
 </section>

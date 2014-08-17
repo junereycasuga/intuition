@@ -15,6 +15,7 @@ INTUITION.map = {
 		}, function() {
 		    alert('Sorry,something went wrong.');
 		});	
+		$('#locationData').focus();
 		var input = /** @type {HTMLInputElement} */(
       				document.getElementById('locationData'));
 
@@ -86,6 +87,7 @@ INTUITION.map = {
 					$('.reviews').append('<h3>No reviews from Google.</3>');
 				}
 			});
+			$('#locationData').trigger('click');
 		});
 	},
 }

@@ -12,7 +12,7 @@
         <div class="container widget customize-form">
             <div class="row-fluid">
                 <div class="span12">
-                    <input type="text" name="location" id="locationData" placeholder="Enter a location">
+                    <input type="text" name="location" id="locationData" placeholder="Enter a location" value="<?php echo ($_POST['searchLocation'])?$_POST['searchLocation']:"";?>">
                     <div id="map" class="mapSize"></div>
                 </div>
             </div>

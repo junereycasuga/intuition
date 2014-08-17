@@ -1,3 +1,9 @@
+<style>
+	.goBtn{
+		margin-top:-10px;
+		height:50px;
+	}
+</style>
 <section id="recent-works">
 	<div class="gap"></div>
 	<div class="container">
@@ -6,7 +12,10 @@
 				<h1 class="rotate">I want to put up a business in..., I want to stay in..., I want to eat in...</h1>
 			</div>
 			<br>
-			<input type="text" name="" id="" class="input-xxxlarge span8" placeholder="Makati City">
+			<form method="POST" action="<?php echo $this->createUrl('insight/create');?>">
+			<input type="text" name="searchLocation" id="" class="input-xxxlarge span8" placeholder="Makati City">
+			<input type="submit" class="btn btn-large btn-inverse goBtn" value="GO">
+			</form>
 		</div>
 	</div>
 	<div class="gap"></div>

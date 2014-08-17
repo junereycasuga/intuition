@@ -36,7 +36,7 @@
 
 	<?php echo $content; ?>
 	<?php $this->renderPartial('//layouts/footer'); ?>
-	<!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>-->
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&sensor=false"></script>
 	<?php 
 	// theme specific scripts
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/jquery-1.9.1.min.js');
