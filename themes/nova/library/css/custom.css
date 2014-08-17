@@ -3,6 +3,16 @@
 	color: #fff;
 	padding: 5px 10px 5px 5px;
 }
+.locationLabel{
+	color: #2dcc70;
+}
+.pinSize{
+	height:50px;
+	width:50px;
+}
+textarea{
+	padding-top: 10px;
+}
 h1 a:hover , h2 a:hover , h3 a:hover ,
 h4 a:hover , h5 a:hover , h6 a:hover {
 	color: #0088cc;

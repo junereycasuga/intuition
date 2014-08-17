@@ -13,7 +13,7 @@
             <?php if($modelUser){ ?>
                 <div class="span4">
                     <?php $form=$this->beginWidget('CActiveForm', array(
-                        'id'=>'community-edit-form',
+                        'id'=>'profile-index-form',
                         'enableClientValidation'=>true,
                         'clientOptions'=>array(
                             'validateOnSubmit'=>true,

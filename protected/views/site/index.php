@@ -20,7 +20,7 @@
 				<p class="no-margin">Share what you know about by giving your insight on a certain area.</p>
 			</div>
 			<div class="span3">
-				<a href="#" class="btn btn-success btn-large pull-right">Contribute Now</a>
+				<a href="<?php echo $this->createUrl('insight/list'); ?>" class="btn btn-success btn-large pull-right">Contribute Now</a>
 			</div>
 		</div>
 	</div>
