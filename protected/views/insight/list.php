@@ -14,7 +14,7 @@
 			<div class="blog">
 				<?php foreach($posts as $post) { ?>
 				<div class="blog-item well">
-					<a href="#">
+					<a href="<?php echo Yii::app()->createUrl('insight/details',array('id'=>$post->insight_id)); ?>">
 						<h2><?php echo $post->location; ?></h2>
 					</a>
 					<div class="blog-meta clearfix">
@@ -29,7 +29,7 @@
 					</div>
 					<p><?php echo $post->description; ?></p>
 					<br><br>
-					<a href="#" role="button" class="btn btn-success">Give your insight</a>
+					<a href="<?php echo Yii::app()->createUrl('insight/details', array('id'=>$post->insight_id)); ?>" role="button" class="btn btn-success">Give your insight</a>
 				</div>
 				<?php } ?>
 			</div>
