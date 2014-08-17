@@ -30,17 +30,25 @@
                 <div class="span12 reviews">
                 </div>
             </div>
-            <hr/>
-            <form name="frm" method="POST" action="<?php echo Yii::app()->createUrl('insight/post'); ?>">
-                <input type="hidden" name="locationName" class="locationName">
-                <input type="hidden" name="locationCode" class="locationCode">
-                <div class="row-fluid">
-                    <textarea name="postDescription" id="postDescription" class="span12" rows="10" placeholder="Enter Description About this Post Here"></textarea>
+
+            <div class="row-fluid">
+                <a href="#postForm" data-toggle="modal" role="button" class="btn btn-success btn-medium pull-right">Want to know others people's insight?</a>
+            </div>
+            <!-- <hr/> -->
+            <div class="modal hide fade in" id="postForm" aria-hidden="false">
+                <div class="modal-body">
+                    <form name="frm" method="POST" action="<?php echo Yii::app()->createUrl('insight/post'); ?>">
+                        <input type="hidden" name="locationName" class="locationName">
+                        <input type="hidden" name="locationCode" class="locationCode">
+                        <div class="row-fluid">
+                            <textarea name="postDescription" id="postDescription" class="span12" rows="10" placeholder="Tell us what you want to know about this place..."></textarea>
+                        </div>
+                        <div class="row-fluid">
+                            <input type="submit" value="POST" class="pull-right btn btn-primary btn-large span2">
+                        </div>
+                    </form>
                 </div>
-                <div class="row-fluid">
-                    <input type="submit" value="POST" class="pull-right btn btn-primary btn-large span2">
-                </div>
-            </form>
+            </div>
         </div>
 
     </section>
