@@ -35,19 +35,20 @@
 			</div>
 
 			<div class="control-group">
-				<div class="controls">
-					<?php echo $form->checkBox($modelLogin,'rememberMe'); ?>
-					<?php echo $form->label($modelLogin,'rememberMe'); ?>
+				<div class="controls pull-left">
+					<?php echo $form->checkBox($modelLogin,'rememberMe') . " Remember me"; ?>
 					<?php echo $form->error($modelLogin,'rememberMe'); ?>
 				</div>
 			</div>
+
+			<br><br>
 
 			<div class="control-group">
 				<div class="controls">
 					<input type="submit" value="Login" class="btn btn-success btn-large btn-block" name="btnLogin">
 				</div>
 			</div>
-
+			
 			<div class="control-group">
 				<p class="pull-right">Don't have an account? Register <a href="<?php echo Yii::app()->createUrl('site/register'); ?>">here</a></p>
 			</div>

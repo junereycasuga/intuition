@@ -17,7 +17,8 @@
     Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/bootstrap-responsive.min.css');
     Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/font-awesome.min.css');
     Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/main.css');
-    Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/sl-slide.css');
+    // Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/sl-slide.css');
+    Yii::app()->clientScript->registerCssFile(Yii::app()->theme->baseUrl.'/library/css/simpletextrotator.css');
 
     // modernizr
     Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/vendor/odernizr-2.6.2-respond-1.1.0.min.js');
@@ -42,40 +43,9 @@
 	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/main.js');
 
 	// js for slider
-	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.ba-cond.min.js');
-	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.slitslider.js');
+	// Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.ba-cond.min.js');
+	// Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.slitslider.js');
+	Yii::app()->clientScript->registerScriptFile(Yii::app()->theme->baseUrl.'/library/js/jquery.simple-text-rotator.min.js');
 	?>
-
-	<script>
-		$(function() {
-		    var Page = (function() {
-
-		        var $navArrows = $( '#nav-arrows' ),
-		        slitslider = $( '#slider' ).slitslider( {
-		            autoplay : true
-		        } ),
-
-		        init = function() {
-		            initEvents();
-		        },
-		        initEvents = function() {
-		            $navArrows.children( ':last' ).on( 'click', function() {
-		                slitslider.next();
-		                return false;
-		            });
-
-		            $navArrows.children( ':first' ).on( 'click', function() {
-		                slitslider.previous();
-		                return false;
-		            });
-		        };
-
-		        return { init : init };
-
-		    })();
-
-		    Page.init();
-		});
-	</script>
 </body>
 </html>

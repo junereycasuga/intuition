@@ -2,7 +2,9 @@
 	<div class="gap"></div>
 	<div class="container">
 		<div class="center">
-			<h1>I want to put up a business in...</h1>
+			<div id="quotes">
+				<h1 class="rotate">I want to put up a business in..., I want to stay in..., I want to eat in...</h1>
+			</div>
 			<br>
 			<input type="text" name="" id="" class="input-xxxlarge span8" placeholder="Makati City">
 		</div>
@@ -56,3 +58,13 @@
 		</div>
 	</div>
 </section>
+
+<script>
+$(document).ready(function() {
+	$(".rotate").textrotator({
+	  animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+	  // separator: "," // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+	  speed: 3000 // How many milliseconds until the next word show.
+	});
+});
+</script>
