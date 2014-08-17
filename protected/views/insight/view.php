@@ -32,27 +32,34 @@
                         <br><h3 class="pull-left"><?php echo $getOwnerDetails->description; ?></h3><br>
                     </div>
 
-                    <div class="row-fluid">
-                        <div class="row-fluid">
-                            <div class="pull-left">
-                                <h1>Reviews:</h1>
+                </div>
+                <hr>
+                <div class="row-fluid">
+                    <div class="span12 reviews">
+                                <h4>Feedbacks</h4>
+                        <div id="comments" class="comments pull-left">
+                            <div class="comments-list">
+                                <?php if($getFeedbacks) {
+                                    foreach($getFeedbacks as $key=>$value) { ?>
+                                    <div class="comment-media">
+                                        <div class="media-body">
+                                            <strong>Feedback by <a href="#"><?php echo Users::model()->findByPk($value['user'])->user_firstname . " " . Users::model()->findByPk($value['user'])->user_lastname; ?></a></strong><br>
+                                            <?php echo $value['date'] ?><br><br>
+                                            <p><?php echo $value['review']; ?></p>
+                                        </div>
+                                    </div>
+                                    <?php }    
+                                } ?>
                             </div>
                         </div>
-                        <?php foreach ($getFeedbacks as $key => $value) { ?>
-                            <div class="row-fluid">
-                                <div class="pull-left">
-                                    <?php echo $value['review']; ?>
-                                </div>
-                            </div>
-                        <?php }?>
                     </div>
+                </div>
 
-                    <div class="row-fluid">
-                       <form method="POST" action="<?php echo $this->createUrl('insight/view?id='.$getOwnerDetails->id); ?>">
-                            <textarea class="span12" rows="5" required="required" placeholder="Enter review here" name="postReview"></textarea>
-                            <input type="submit" name="submitReview" value="Post" class="pull-right btn btn-primary btn-large">
-                        </form>
-                    </div>
+                <div class="row-fluid">
+                   <form method="POST" action="<?php echo $this->createUrl('insight/view?id='.$getOwnerDetails->id); ?>">
+                        <textarea class="span12" rows="5" required="required" placeholder="Enter review here" name="postReview"></textarea>
+                        <input type="submit" name="submitReview" value="Post" class="pull-right btn btn-primary btn-large">
+                    </form>
                 </div>
             </div>
         </section>
