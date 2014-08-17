@@ -30,10 +30,24 @@
         <hr/>
         <div class="row-fluid">
             <div class="span12 reviews">
-                <?php if($info->feed){ ?>
-                <?php }else{ ?>
-                    <h2 class="text-error">No Feedbacks for this Post</h2>
-                <?php } ?>
+                <div id="comments" class="comments">
+                    <div class="comments-list">
+                    <?php if($info->feed){ 
+                        foreach($info->feed as $feed) { ?>
+                            <h4>Feedbacks</h4>
+                                <div class="comment media">
+                                    <div class="media-body">
+                                        <strong>Feedback by <a href="#"><?php echo Users::model()->findByPk($feed['user'])->user_firstname . " " . Users::model()->findByPk($feed['user'])->user_lastname; ?></a></strong><br>
+                                        <?php echo $feed['date'] ?><br><br>
+                                        <p><?php echo $feed['review']; ?></p>
+                                    </div>
+                                </div>
+                        <?php }
+                    }else{ ?>
+                        <h2 class="text-error">No Feedbacks for this Post</h2>
+                    <?php } ?>
+                    </div>
+                </div>         
             </div>
         </div>
     </div>

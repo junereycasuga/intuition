@@ -107,7 +107,7 @@ class CreatedInsights extends CActiveRecord
 	}
 
 	public static function getInsightComments($id) {
-		$collection = Yii::;app()->edmsMongoCollection('insights');
+		$collection = Yii::app()->edmsMongoCollection('insights');
 		$info = $collection->findOne(array('insight_id'=>$id));
 		$comments = array();
 		
