@@ -23,10 +23,16 @@ class ProfileController extends Controller
 		);
 	}
 
-	public function actionIndex(){
-		$myInsights = CreatedInsights::getListOfInsights();
+	public function actionIndex(){ 
+		$modelUser 	=	Users::model()->findByPk(Yii::app()->user->id);
+		if(isset($_POST['Users'])){
+			$modelUser->attributes = $_POST['Users'];
+			$TPassword = new TPassword();
+			$modelUser->user_password =  $TPassword->hash($_POST['Users']['user_password']);
+			$modelUser->save();
+		}
 		$this->render('index',array(
-				'insight' => $myInsights,
+				'modelUser' => $modelUser,
 			));
 	}
 }

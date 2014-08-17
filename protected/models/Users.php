@@ -63,9 +63,9 @@ class Users extends CActiveRecord
 			'id' => 'ID',
 			'username' => 'Username',
 			'user_email' => 'User Email',
-			'user_password' => 'User Password',
-			'user_firstname' => 'User Firstname',
-			'user_lastname' => 'User Lastname',
+			'user_password' => 'Password',
+			'user_firstname' => 'Firstname',
+			'user_lastname' => 'Lastname',
 		);
 	}
 
@@ -142,4 +142,6 @@ class Users extends CActiveRecord
 			return false;
 		}
 	}
+
+	
 }
