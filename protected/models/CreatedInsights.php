@@ -106,6 +106,22 @@ class CreatedInsights extends CActiveRecord
 		return array_reverse($collectionArray);
 	}
 
+	public static function getInsightComments($id) {
+		$collection = Yii::;app()->edmsMongoCollection('insights');
+		$info = $collection->findOne(array('insight_id'=>$id));
+		$comments = array();
+		
+		if($comments) {
+			foreach($comments as $comment) {
+				$data = new stdClass;
+
+				$comments[] = $data;
+			}
+		}
+
+		return array_reverse($comments);
+	}
+
 	public static function postInsight($id,$owner,$location,$code,$description){
 
 		$model = new CreatedInsights;
