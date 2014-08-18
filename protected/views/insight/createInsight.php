@@ -14,7 +14,7 @@
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="row-fluid">
-                            <input type="text" class="pull-left" name="location" id="locationData" placeholder="Enter a location">
+                            <input type="text" class="pull-left" name="location" id="locationData" placeholder="Enter a location" value="<?php echo ($_POST['searchLocation'])?$_POST['searchLocation']:"";?>">
                         </div>
                         <div id="map" class="mapSize"></div>
                     </div>
@@ -39,16 +39,6 @@
                     </div>
                 </div>
                 <hr/>
-                <form name="frm" method="POST" action="<?php echo Yii::app()->createUrl('insight/post'); ?>">
-                    <input type="hidden" name="locationName" class="locationName">
-                    <input type="hidden" name="locationCode" class="locationCode">
-                    <div class="row-fluid">
-                        <textarea name="postDescription" id="postDescription" class="span12" rows="10" placeholder="Enter Description About this Post Here"></textarea>
-                    </div>
-                    <div class="row-fluid">
-                        <input type="submit" value="POST" class="pull-right btn btn-primary btn-large">
-                    </div>
-                </form>
 <div class="row-fluid">
                 <a href="#postForm" data-toggle="modal" role="button" class="btn btn-success btn-medium pull-right">Want to know others people's insight?</a>
             </div>

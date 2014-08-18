@@ -37,7 +37,7 @@
 									<div class="row-fluid">
 										<br><h3 class="pull-left"><?php echo $post->description; ?></h3><br>
 									</div>
-									<a href="<?php echo Yii::app()->createUrl('insight/details', array('id'=>$post->insight_id)); ?>" role="button" class="btn btn-success pull-left">Give your insight</a>
+									<a href="<?php echo $this->createUrl('insight/view?id='.$post->insight_id); ?>" role="button" class="btn btn-success pull-left">Give your insight</a>
 								</div>
 							</div>
 							<?php } ?>
